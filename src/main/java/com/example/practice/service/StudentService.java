@@ -1,15 +1,28 @@
 package com.example.practice.service;
 
+import com.example.practice.entity.Product;
 import com.example.practice.entity.Student;
+import com.example.practice.respoditory.ProductRespository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
 @Service
 public class StudentService {
+
+    // repository
+    private final ProductRespository productRespository;
+
+    public StudentService(ProductRespository productRespository) {
+        this.productRespository = productRespository;
+    }
+
 
     @GetMapping
     public List<Student> getStudent() {
@@ -21,5 +34,6 @@ public class StudentService {
                 21
         ));
     }
+
 
 }

@@ -17,6 +17,7 @@ import java.util.List;
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
 class ProductRepositoryTest {
 
+    // DI in test we can to use only Autowired
     @Autowired
     private ProductRespository productRepository;
 
@@ -132,7 +133,7 @@ class ProductRepositoryTest {
         productRepository.deleteAll();
     }
 
-    protected Product getProduct1(){
+    private Product getProduct1(){
         Product product = new Product();
         product.setName("product 1");
         product.setDescription("product 1 desc");
@@ -143,7 +144,7 @@ class ProductRepositoryTest {
         return product;
     }
 
-    protected Product getProduct2(){
+    private Product getProduct2(){
         Product product2 = new Product();
         product2.setName("product 2");
         product2.setDescription("product 2 desc");
