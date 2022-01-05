@@ -1,6 +1,6 @@
-package com.example.practice.student;
+package com.example.practice.service;
 
-import org.springframework.stereotype.Component;
+import com.example.practice.entity.Student;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
