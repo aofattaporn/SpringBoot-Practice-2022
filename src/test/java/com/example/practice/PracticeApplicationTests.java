@@ -12,7 +12,6 @@ class PracticeApplicationTests {
 		boolean expected = true;
 		boolean actual = true;
 		Assertions.assertEquals(expected, actual);
-
 	}
 
 }

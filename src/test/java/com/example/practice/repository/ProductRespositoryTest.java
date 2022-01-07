@@ -1,8 +1,8 @@
-package com.example.practice;
+package com.example.practice.repository;
 
 //import net.javaguides.springdatajpacourse.entity.Product;
 import com.example.practice.entity.Product;
-import com.example.practice.respoditory.ProductRespository;
+import com.example.practice.repoditory.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -19,7 +19,7 @@ class ProductRepositoryTest {
 
     // DI in test we can to use only Autowired
     @Autowired
-    private ProductRespository productRepository;
+    private ProductRepository productRepository;
 
 
     @Test

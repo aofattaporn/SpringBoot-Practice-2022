@@ -1,14 +1,13 @@
 package com.example.practice.service;
 
 import com.example.practice.entity.Product;
-import com.example.practice.respoditory.ProductRespository;
+import com.example.practice.repoditory.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,10 +15,10 @@ import java.util.Optional;
 public class ProductService {
 
     // dependency injection
-    private final ProductRespository productRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public ProductService(ProductRespository productRepository) {
+    public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
@@ -37,6 +36,7 @@ public class ProductService {
     public void deleteProductID(Long id){
         productRepository.deleteById(id);
     }
+
     @DeleteMapping
     public void deleteAllProduct(){
         productRepository.deleteAll();

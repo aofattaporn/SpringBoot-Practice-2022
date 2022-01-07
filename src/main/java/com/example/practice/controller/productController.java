@@ -21,25 +21,25 @@ public class productController {
     }
 
     // method find by id
-    @GetMapping(path = "get/{id}/product")
+    @GetMapping(path = "get/product/{id}")
     public Optional<Product> getProduct(@PathVariable("id") long id){
         return  productService.getProductID(id);
     }
 
     // method find all id
-    @GetMapping(path = "get/all/product")
+    @GetMapping(path = "get/products")
     public List<Product> getAllProduct(){
         return  productService.getAllProduct();
     }
 
     // method to delete
-    @DeleteMapping(path = "delete/{productID}/product")
+    @DeleteMapping(path = "delete/product/{productID}")
     public void deleteProduct(@PathVariable Long productID){
         // delete product id service
         productService.deleteProductID(productID);
     }
 
-    @DeleteMapping(path = "delete/all/product")
+    @DeleteMapping(path = "delete/products")
     public void deleteProduct(){
         // delete all product
         productService.deleteAllProduct();
