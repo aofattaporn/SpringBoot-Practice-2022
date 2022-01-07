@@ -2,7 +2,6 @@ package com.example.practice.repository;
 
 //import net.javaguides.springdatajpacourse.entity.Product;
 import com.example.practice.entity.Product;
-import com.example.practice.repoditory.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
