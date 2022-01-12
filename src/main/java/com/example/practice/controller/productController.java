@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-//@RequestMapping(path = "/product/all")
 public class productController {
 
     // dependency injection
