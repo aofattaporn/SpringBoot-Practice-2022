@@ -1,10 +1,13 @@
 package com.example.practice.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table
+@Data
 public class User {
 
     @Id
