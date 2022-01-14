@@ -1,6 +1,7 @@
 package com.example.practice.controller;
 
 
+import com.example.practice.business.UserBusiness;
 import com.example.practice.entity.User;
 import com.example.practice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,35 +16,35 @@ import java.util.Optional;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserBusiness userBusiness;
 
     @PostMapping("save/user")
-    public ResponseEntity<Void> addUser(@Valid @RequestBody User user) {
-        userService.saveUser(user);
+    public ResponseEntity<Void> addUser(@Valid @RequestBody User user)  {
+        userBusiness.saveUser(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<Optional<User>> getUserById(@PathVariable Long id) {
-        Optional<User> response = userService.getUserById(id);
+    @GetMapping("/user/{request}")
+    public ResponseEntity<Optional<User>> getUserById(@PathVariable Long request) {
+        Optional<User> response = userBusiness.getUserByID(request);
         return new ResponseEntity<Optional<User>>(response, HttpStatus.OK);
     }
 
     @GetMapping("/users")
     public ResponseEntity<Iterable<User>> getAllUser() {
-        Iterable<User> response = userService.getUsers();
+        Iterable<User> response = userBusiness.getUsers();
         return new ResponseEntity<Iterable<User>>(response, HttpStatus.OK);
     }
 
-    @DeleteMapping("delete/users")
-    public ResponseEntity<Void> deleteUser() {
-        userService.deleteUsers();
+    @DeleteMapping("/delete/users")
+    public ResponseEntity<Void> deleteAllUser() {
+        userBusiness.deleteUsers();
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping("delete/user/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
-        userService.deleteUserById(id);
+    @DeleteMapping("/delete/user/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        userBusiness.deleteUserById(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
