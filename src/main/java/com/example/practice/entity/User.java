@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table
@@ -14,11 +15,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    //    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Name is mandatory")
     private String name;
 
     @Email
-//    @NotBlank(message = "Email is mandatory")
+    @NotBlank(message = "Email is mandatory")
     private String email;
+
+    @NotBlank(message =  "Password is mandatory")
+    private String password;
 
 }

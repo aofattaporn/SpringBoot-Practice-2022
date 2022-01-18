@@ -3,7 +3,7 @@ package com.example.practice.controller;
 
 import com.example.practice.business.UserBusiness;
 import com.example.practice.entity.User;
-import com.example.practice.service.UserService;
+import com.example.practice.entity.UserLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +18,21 @@ public class UserController {
     @Autowired
     private UserBusiness userBusiness;
 
+    @PostMapping("/register")
+    public ResponseEntity<Void> register(@RequestBody User user) {
+        userBusiness.saveUser(user);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody UserLogin user){
+        userBusiness.findUser(user);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @PostMapping("save/user")
-    public ResponseEntity<Void> addUser(@Valid @RequestBody User user)  {
+    public ResponseEntity<Void> User(@Valid @RequestBody User user) {
         userBusiness.saveUser(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

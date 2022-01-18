@@ -17,18 +17,19 @@ public class UserService {
     private UserRepository userRepository;
 
     @PostMapping
-    public void saveUser(User user) {
+    public void createUser(User user) {
         userRepository.save(user);
     }
 
     @GetMapping
-    public Optional<User> getUserById(Long id) {
+    public Optional<User> readUserById(Long id) {
         Optional<User> userId = userRepository.findById(id);
         return userId;
     }
 
+
     @GetMapping
-    public Iterable<User> getUsers() {
+    public Iterable<User> readUsers() {
         return userRepository.findAll();
     }
 
