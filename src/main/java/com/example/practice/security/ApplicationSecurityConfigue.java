@@ -1,5 +1,6 @@
 package com.example.practice.security;
 
+import com.example.practice.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +22,7 @@ public class ApplicationSecurityConfigue extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "index", "/css/*", "js/*").permitAll()
+                .antMatchers("/", "index", "/css/*", "js/*", "/save/user").permitAll()
                 .anyRequest().authenticated()
                 .and().httpBasic();
     }
@@ -33,11 +34,18 @@ public class ApplicationSecurityConfigue extends WebSecurityConfigurerAdapter {
         UserDetails userDetails = User.builder()
                 .username("user")
                 .password(passwordConfig.passwordEncoder().encode("password"))
-                .roles("student")
+                .roles(ApplicationUserRole.STUDENT.name())
+                .build();
+
+        UserDetails userAttaporn = User.builder()
+                .username("Attaporn")
+                .password(passwordConfig.passwordEncoder().encode("026449013"))
+                .roles(ApplicationUserRole.ADMIN.name())
                 .build();
 
         return new InMemoryUserDetailsManager(
-                userDetails
+                userDetails,
+                userAttaporn
         );
     }
 }

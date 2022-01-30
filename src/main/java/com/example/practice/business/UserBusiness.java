@@ -27,12 +27,12 @@ public class UserBusiness {
             throw UserException.UserInputUserNameNull();
         } else {
 
-            User temp = new User();
-            temp.setName(user.getName());
-            temp.setEmail(user.getEmail());
-            temp.setPassword(passwordEncoder.encode(user.getPassword()));
+//            User temp = new User();
+//            temp.setName(user.getName());
+//            temp.setEmail(user.getEmail());
+//            temp.setPassword(passwordEncoder.encode(user.getPassword()));
 
-            userService.createUser(temp);
+            userService.createUser(user);
         }
     }
 
