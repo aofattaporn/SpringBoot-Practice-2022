@@ -1,6 +1,5 @@
 package com.example.practice.service;
 
-import com.example.practice.entity.Student;
 import com.example.practice.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
