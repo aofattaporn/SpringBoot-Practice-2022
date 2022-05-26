@@ -51,10 +51,6 @@ public class UserController {
         return new ResponseEntity<Iterable<User>>(response, HttpStatus.OK);
     }
 
-//    @PutMapping("/update/{id}")
-//    public ResponseEntity<Void> putUserById(@RequestBody User user, @PathVariable Long id){
-//
-//    }
 
     @DeleteMapping("/delete/users")
     public ResponseEntity<Void> deleteAllUser() {

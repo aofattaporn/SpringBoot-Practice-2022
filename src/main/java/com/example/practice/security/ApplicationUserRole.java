@@ -4,7 +4,7 @@ import com.google.common.collect.Sets;
 
 import java.util.Set;
 
-public enum ApplicationUserRole {
+public enum  ApplicationUserRole {
     STUDENT(Sets.newHashSet()),
     ADMIN(Sets.newHashSet(
             ApplicationUserPermission.COURSE_READ,
